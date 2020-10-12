@@ -26,6 +26,7 @@ body {
     border-radius: 2%;
 }
 
+
 #searchBtn{
     background-color: #2196F3;
     padding:5px 8px 5px 8px;
@@ -36,4 +37,19 @@ body {
 
 #searchBtn:hover{
      box-shadow:0 0 5px 5px #7cc0f8;
+}
+
+#searched-city{
+    clear:left;
+    margin: 10px 5px 10px 5px;
+    overflow:hidden;
+}
+
+.searched{
+    width:100%;
+    background-color:white;
+    font-size:17px;
+    border:1px solid lightgrey;
+    border-radius:2px;
+    padding:10px;
 }
