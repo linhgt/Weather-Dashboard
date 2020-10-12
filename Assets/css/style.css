@@ -33,3 +33,7 @@ body {
     border-radius: 6%;
     border: 1px solid grey;
 }
+
+#searchBtn:hover{
+     box-shadow:0 0 5px 5px #7cc0f8;
+}
