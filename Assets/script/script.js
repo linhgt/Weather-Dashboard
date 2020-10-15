@@ -49,3 +49,19 @@ function citySearched(cityName){
     listOfSearchedCity.appendChild(cityBlock);
     cityBlock.classList.add("searched");
 };
+
+//get current weather for city
+function weatherApiQuery(city)
+{
+    let APIkey = "17bfdc31b9f4ebbcee9fc0577f2e9856";
+    $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + APIkey, 
+        method: "GET"
+    }).then(function(response){
+        console.log(response);
+    }, function (error){
+        console.log(error);
+    });
+}
+
+weatherApiQuery("seattle");
