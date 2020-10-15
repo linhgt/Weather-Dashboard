@@ -12,15 +12,26 @@
     <header class="container-fluid text-center text-white bg-dark p-2">
         <h1>Weather Dashboard</h1>
     </header>
-    <div class="search">
+    <div class="container-fluid">
+        <div class="row">
+            <aside class="col-lg-3 bg-light">
+                <span style="font-size: large; font-weight:bold">Search for a city:</span><br>
+                <form>
+                    <input type="text" id="searchbox" name="searchbox">
+                    <button id="searchBtn"><i class="fa fa-search"></i></button>
+                </form>
+                <div id="searched-city"></div>
+            </aside>
+        </div>
+    </div>
+    <!--<div class="search">
         <span style="font-size: large; font-weight:bold">Search for a city:</span><br>
         <form>
             <input type="text" id="searchbox" name="searchbox">
             <button id="searchBtn"><i class="fa fa-search"></i></button>
         </form>
         <div id="searched-city"></div>
-    </div>
-    <div class="present-day"></div>
+    </div>-->
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="crossorigin="anonymous"></script>    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
