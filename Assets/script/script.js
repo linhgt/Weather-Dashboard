@@ -43,12 +43,15 @@ searchBtn.addEventListener("click", function(event){
 //show the history of searched city
 function citySearched(cityName){
     var cityBlock = document.createElement("div");
+    cityName = cityName.charAt(0).toUpperCase() + cityName.slice(1);    //capitalize the city name
     cityBlock.textContent = cityName;
 
     var listOfSearchedCity = document.querySelector("#searched-city");
     listOfSearchedCity.appendChild(cityBlock);
     cityBlock.classList.add("searched");
 };
+
+
 
 //get current weather for city
 function weatherApiQuery(city)
@@ -61,9 +64,12 @@ function weatherApiQuery(city)
         console.log(response);
 
         var today = $("#today");
-        today.attr("style", "border:1px solid grey");
+
+        today.removeClass("hide");
+
         var header = $("<h2>");
         header.text(city);
+
         today.append(header);
     }, function (error){
         console.log(error);

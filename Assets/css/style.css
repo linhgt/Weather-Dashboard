@@ -47,5 +47,10 @@ body {
     padding:10px;
 }
 
+.hide{
+    display:none;
+}
+
 #today{
+    border:1px solid grey;
 }
