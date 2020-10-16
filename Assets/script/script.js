@@ -58,9 +58,16 @@ searchBtn.addEventListener("click", function(event){
 
 //show the history of searched city
 function citySearched(cityName){
+    //Create a block
     var cityBlock = document.createElement("div");
     cityBlock.textContent = cityName;
+    cityBlock.addEventListener("click", function(event){
+        event.preventDefault();
+        //return current weather when clicked
+        weatherApiQuery(cityName);
+    });
 
+    //Display the block
     var listOfSearchedCity = document.querySelector("#searched-city");
     listOfSearchedCity.appendChild(cityBlock);
     cityBlock.classList.add("searched");
