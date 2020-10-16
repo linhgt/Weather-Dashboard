@@ -54,6 +54,7 @@ body {
 #today{
     border:1px solid grey;
     border-radius: 5px;
+    padding:25px;
 }
 
 #today h3{
