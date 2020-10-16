@@ -59,6 +59,12 @@ function weatherApiQuery(city)
         method: "GET"
     }).then(function(response){
         console.log(response);
+
+        var today = $("#today");
+        today.attr("style", "border:1px solid grey");
+        var header = $("<h2>");
+        header.text(city);
+        today.append(header);
     }, function (error){
         console.log(error);
     });
