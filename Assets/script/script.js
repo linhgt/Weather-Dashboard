@@ -152,16 +152,30 @@ function UVindex(lat, lon)
         method: "GET"
     }).then(function(response){
             var value = response.value;     //UV index
-            var redOutline = $("<button>");
-            redOutline.addClass("btn btn-danger active");
-            redOutline.text(value);
-            redOutline.attr("aria-pressed", "true");
+            var Outline = $("<button>");
+            Outline.addClass("btn active");
+
+            //change colors
+            if(value <= 2)
+            {
+                Outline.addClass("btn-success");
+            }
+            else if(value >2 && value <8)
+            {
+                Outline.addClass("btn-warning");
+            }
+            else if(value >=8)
+            {
+                Outline.addClass("btn-danger");
+            }
+            Outline.text(value);
+            Outline.attr("aria-pressed", "true");
 
             //Display UV index
             var today=$("#today");
             var UVindex = $("<p>");
             UVindex.text("UV index: ");
-            UVindex.append(redOutline);
+            UVindex.append(Outline);
             today.append(UVindex);
             
     }, function(error){
