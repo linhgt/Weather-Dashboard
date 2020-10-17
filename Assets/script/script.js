@@ -43,6 +43,9 @@ searchBtn.addEventListener("click", function(event){
         //retrieve current weather
         weatherApiQuery(cityName);
 
+        //retrieve 5 day forecast
+        fiveDayForecast(cityName);
+
         //Store the city's name in the storage
         var cityHistory = JSON.parse(localStorage.getItem("Cities"));
 
@@ -65,6 +68,9 @@ function citySearched(cityName){
         event.preventDefault();
         //return current weather when clicked
         weatherApiQuery(cityName);
+
+        //return 5 day forecast
+        fiveDayForecast(cityName);
     });
 
     //Display the block
@@ -162,3 +168,73 @@ function UVindex(lat, lon)
         console.log(error);
     })
 }
+
+//Get 5 day forecast
+function fiveDayForecast(city){
+    let APIkey = "17bfdc31b9f4ebbcee9fc0577f2e9856";
+
+    $.ajax({
+        url: "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=" + APIkey, 
+        method: "GET"
+    }).then(function(response){
+            console.log(response);
+            var result = response.list;        //Get the list of forecasts
+
+            var forecast = $("#forecast");
+            forecast.empty();
+            forecast.removeClass("hide");
+
+            //header
+            var header = $("<h4>");
+            header.addClass("mt-3");
+            header.text("5-Day Forecast:");
+
+            var row = $("<div>");
+            row.addClass("row");
+
+            forecast.append(header);
+            forecast.append(row);
+            
+            //Get one day forecast every 8 index
+            for(var i = 0; i < 39; i=i+8)
+            {
+                var temperature = result[i].main.temp;                                                  //temperature
+                var humidity = result[i].main.humidity;                                                 //humidity
+                var date = convertTimeStamp(result[i].dt);                                              //date
+                var icon = "http://openweathermap.org/img/wn/" + result[i].weather[0].icon + ".png";    //weather icon
+
+                //Build the forecast card
+                var col = $("<div>");
+                col.addClass("col-md-2");
+                var card = $("<div>");
+                card.addClass("card bg-primary text-white");
+                var cardBody = $("<div>");
+                cardBody.addClass("card-body p-2");
+                var cardTitle = $("<h5>");   
+                cardTitle.addClass("card-title");
+                cardTitle.text(date);
+                var weatherIcon = $("<img>");
+                weatherIcon.addClass("card-subtitle");
+                weatherIcon.attr("src", icon);
+                var temp = $("<p>");
+                temp.addClass("card-text");
+                temp.text("Temp: " + temperature +" \u00B0F");
+                var humid = $("<p>");
+                humid.addClass("card-text");
+                humid.text("Humidity: " + humidity +"%");
+
+                //Assemble the card
+                row.append(col);
+                col.append(card);
+                card.append(cardBody);
+                cardBody.append(cardTitle);
+                cardBody.append(weatherIcon);
+                cardBody.append(temp);
+                cardBody.append(humid);
+            }
+
+
+    }, function(error){
+        console.log(error);
+    })
+};
