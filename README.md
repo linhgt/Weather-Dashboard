@@ -18,7 +18,7 @@ HTML, CSS, Javascript, JQuery, Bootstrap
 
 Open up the app, on the left side is the search bar and search history.
 
-![screenshot]("Assets/img/screenshot.JPG")
+![screenshot](Assets/img/screenshot.JPG)
 
 Type the city name into the search bar and click the search icon,, the current data is retrieved on the right and the 5 day forecast below it.
 
