@@ -23,7 +23,3 @@ Open up the app, on the left side is the search bar and search history.
 Type the city name into the search bar and click the search icon,, the current data is retrieved on the right and the 5 day forecast below it.
 
 The city is recorded under the search box, user can clicks the city name to see the data again. In the future users can look at the city again
-
-### License
-
-None
